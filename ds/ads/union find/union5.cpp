@@ -1,4 +1,4 @@
-/* Структура података за представљање дисјунктних подскупова (union-find)
+/* union-find x -> rod[rod[x]]
 
 Umesto dva prolaza, može samo jedan...
 

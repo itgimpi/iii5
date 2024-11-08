@@ -1,4 +1,4 @@
-/* Структура података за представљање дисјунктних подскупова (union-find)
+/* union-find Svaki drugi -> babe i dede
 
 2. način: Svaki drugi se usmeri na roditelja od roditelja.
 Ovo ređenje se razlikuje od prvog sa roditeljima u samo jednom redu! 
@@ -23,7 +23,7 @@ void init() {
 
 int nadji(int x) {
     while (x != roditelj[x]) {
-        roditelj[x] = roditelj[roditelj[x]];
+        roditelj[x] = roditelj[roditelj[x]]; // jedina razlika u odnosu na union3
         x = roditelj[x]; }
     return x; }
 

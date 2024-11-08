@@ -136,7 +136,7 @@ int main() {
 
     // dva dodatna veštačka čvora, već su zauzeti od 0 do n*n-1...
     const int pocetak = n * n;
-    const int kraj = n * n+1;
+    const int kraj = n * n + 1;
 
     // inicijalizujemo union-find strukturu za sve elemente matrice (njih n*n), pocetak i kraj
     init(n * n + 2);

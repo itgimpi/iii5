@@ -1,4 +1,4 @@
-/* union-find
+/* union-find sa rod + rang (h)
 
 Kod unije bi bilo dobro da se visina stabla (od korena do najdaljeg lista) što manje povećava.
 
@@ -74,12 +74,12 @@ using namespace std;
 
 int roditelj[1000];
 int n;
-int rang[1000];
+int rang[1000]; // visina podskupa
 
 void init() {
     for (int i = 0; i < n; i++) {
         roditelj[i] = i;
-        rang[i] = 0;    } }
+        rang[i] = 0; } }
 
 int nadji(int x) {
     while (roditelj[x] != x) 
@@ -87,14 +87,14 @@ int nadji(int x) {
     return x; }
 
 void spoji(int x, int y) {
-    int fx = nadji(x), fy = nadji(y);
-    if (rang[fx] < rang[fy])
-        roditelj[fx] = fy;
-    else if (rang[fy] < rang[fx])
-        roditelj[fy] = fx;
-    else {
-        roditelj[fx] = fy;
-        rang[fy]++;    } }
+    int fx = nadji(x), fy = nadji(y); // predstavnici podskupova, O(log n)
+    if (rang[fx] < rang[fy]) // visina prvog je manja?
+        roditelj[fx] = fy;   // pred. prvog pokazuje na pred. drugog
+    else if (rang[fy] < rang[fx]) // visina drugog manja?
+        roditelj[fy] = fx;        // pred. dr. pokazuje na pr. prvog
+    else {                  // visine su iste?
+        roditelj[fx] = fy;  // npr. pred. prvog -> pred. drugog
+        rang[fy]++;    } }  // visina drugog podskupa ++
 
 int main() {
 

@@ -1,14 +1,14 @@
-/* Структура података за представљање дисјунктних подскупова (union-find)
+/* union-find sa roditeljima 1
 
 Elementi se ne preslikavaju u podskupove nego u roditelje. 
 Formiraju se stabla, u kojima se koreni na početku preslikavaju sami u sebe. Npr roditelj od 5 je 5.
 
 Podskup nekog elementa se određuje prolaskom kroz roditelje, do korena. Deca pokazuju na roditelje.
 
-7   svi elementi ispod su u skupu koji je obeležen 7.
+7,   svi elementi ispod su u skupu koji je obeležen 7.
 ^
 |
-4   4 je roditelj od 2, 7 je roditelj od 4, 4 je oznaka skupa.
+4,   4 je roditelj od 2, 7 je roditelj od 4, 4 je oznaka skupa.
 ^
 |
 2   
@@ -90,19 +90,19 @@ Zadatak je efikasna struktura, koja omogućava uravnoteženo stablo.
 #include <bits/stdc++.h>
 using namespace std;
 
-int roditelj[1000];
+int roditelj[1000]; // nije id, nego rod.
 int n;
 
-void init() {
+void init() { // na pocetku svaki el. pokazuje na sebe, tj. nema roditelja...
     for (int i = 0; i < n; i++)
         roditelj[i] = i; }
 
-int nadji(int x) {
+int nadji(int x) { // log n
     while (roditelj[x] != x) 
         x = roditelj[x];
     return x; }
 
-void spoji(int x, int y) { // spoji prvi i drugi u prvi
+void spoji(int x, int y) { // spoji prvi i drugi u prvi O(n)
     int fx = nadji(x), fy = nadji(y);
     roditelj[fx] = fy; }
      

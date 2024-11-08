@@ -1,7 +1,8 @@
-/* Структура података за представљање дисјунктних подскупова (union-find)
+/* union-find sa 2 prolaska
 
-Iako sloćenost nije loša (za n unija је O(n logn)), može da se popravi.
-Tehnika je kompresija putanje.
+Iako složenost nije loša (za n unija је O(n logn)), može da se popravi.
+
+Tehnika je kompresija putanje!!!
 
 Kad se traže predstavnici, mogu svi čvorovi kroz koje se prolazi da se usmere prema korenu.
 Prvim prolaskom se odredi koren, drugim se svi usmere prema korenu.

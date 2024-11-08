@@ -63,7 +63,7 @@ samo skup {0, 1, 2, 3, 4, 5, 6, 7} u oznaci 0
 #include <bits/stdc++.h>
 using namespace std;
 
-int id[1000];
+int id[1000]; // do 1000 elemenata
 int n;
 
 void init() { // 

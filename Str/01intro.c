@@ -2,10 +2,12 @@
 // Stringovi u C-u su nizovi znakova
 
 int strlen2( char s[] ) {
-    int i = 0;
-    while ( s[i] != '\0' )
-        i++;
+    int i = 0; // brojac je 0 
+    while ( s[i] != '\0' ) // sve dok nije '\0'...
+        i++; // brojac + 1
     return i; }
+
+
 
 int strlen3( char s[] ) {
     int i = 0;

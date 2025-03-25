@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-// my 1st directed graph, hand made
+// my 1st directed graph, using matrix, hand made
 
 int main () {
     int n = 4; // number of nodes

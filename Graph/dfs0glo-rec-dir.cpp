@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+// directed graph
 // DFS using recursion + vector
 // global
 

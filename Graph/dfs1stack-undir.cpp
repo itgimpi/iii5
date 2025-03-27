@@ -1,22 +1,28 @@
 #include <bits/stdc++.h>
 using namespace std;
-// directed graph
-// DFS using recursion + vector
-
-//vector<vector<int>>veze;
-//vector<bool>posecen;
+// undirected graph
+// DFS using stack + vector
 
 void dodaj(int u, int v, vector<vector<int>> &veze) {
     veze[u].push_back(v);
     veze[v].push_back(u); }
 
 void dfs(int c, const vector<vector<int>> &veze, vector<bool> &posecen) {
-    if ( !posecen[c] ) {
-        posecen[c] = true;
-        cout << c << ' ';
-        for ( auto s : veze[c] )
-            dfs(s, veze, posecen);
+    stack<int>stek;
+    stek.push(c); // pocetni cvor ide na stek
+    posecen[c] = true; // posecen je
+
+    while ( !stek.empty() ) { // sve dok ima nesto na steku...
+        int cvor = stek.top(); // uzmi sa vrha steka
+        stek.pop(); // i skloni
+        cout << cvor << ' ';
+        for ( auto s : veze[cvor] ) // za sve susede...
+            if ( !posecen[s] ) { // ako nisu poseceni
+                posecen[s] = true;
+                stek.push(s);
+            }
     }
+    return;
 }
 
 int main () {
@@ -37,8 +43,8 @@ int main () {
     dodaj(6, 7, veze);
     dodaj(7, 8, veze);
     dfs(3, veze, posecen); // pokreni dfs iz cvora 1
-    //dfs(0, veze, posecen); // pokreni dfs iz cvora 0
-    //dfs(6, veze, posecen); // pokreni dfs iz cvora 6
-    //dfs(4, veze, posecen); // pokreni dfs iz cvora 4
 
+
+    //dfs(0, veze, posecen); // pokreni dfs iz cvora, npr. iz 0
+    //dfs(4, veze, posecen); // pokreni dfs iz cvora, iz 1
     return 0; }

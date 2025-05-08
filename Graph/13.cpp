@@ -6,12 +6,14 @@ using namespace std;
 int main () {
     ios_base::sync_with_stdio(false);
     int n, e; cin >> n >> e;
+
     vector<int>ulaz(n+1, 0);
     vector<int>izlaz(n+1, 0);
+
 // ne pamti se graf, pamte se stepeni cvorova
     for (int i = 0; i < e; i++) {
         int u, v; cin >> u >> v;
-        // u .------->. v
+        //                             u .------->. v
         ulaz[v]++;
         izlaz[u]++;
     }
